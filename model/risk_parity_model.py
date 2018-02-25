@@ -7,7 +7,7 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 from utils.common import vol_annualizer, timeit
-from utils.performance_utils import get_basic_summary
+from utils.performance import get_basic_summary
 import logging
 
 
@@ -16,7 +16,7 @@ class RiskParityModel:
                  tickers=None,
                  sigma_lookback=60,
                  risk_contribution_lookback=None,
-                 correlation_blind=True,
+                 weighting_scheme= "inverse_vol",
                  weights_prior=None,
                  shrinkage_factor=0.0,
                  shrink_weights=False,
@@ -28,12 +28,18 @@ class RiskParityModel:
         :param tickers:
         :param sigma_lookback:  window used for computing historical volatility and covariance matrix. 
         :param risk_contribution_lookback: window used for calculating risk contribution. Default to sigma_lookback.
-        :param correlation_blind:
+        :param weighting_scheme:
+            - inverse_vol: targeting equal vol, ignoring asset correlations.
+            - equal_risk_contri: targeting equal risk contribution, taking asset correlations into considerations.
+            - to be added: cluster risk parity
         :param weights_prior: the default prior is to weight asset equally.
         :param shrink_weights: whether to shrink weights to prior
         :param shrinkage_factor: how aggressive you want to shrink the weights.
             shrinkage_factor = 1 will force the weights to prior;
             shrinkage_factor = 0 will apply no effective shrinkage.
+
+        Note:
+            we could also add a volatility target to implement levered risk parity, but that will require potential usage of leverage.
         """
         if tickers is None:
             tickers = ['SPY', 'AGG']
@@ -45,7 +51,7 @@ class RiskParityModel:
         self.tickers = tickers
         self.sigma_lookback = sigma_lookback
         self.risk_contribution_lookback = risk_contribution_lookback
-        self.correlation_blind = correlation_blind
+        self.weighting_scheme = weighting_scheme
         self.rebal_frequency = "daily"
         self.shrink_weights = shrink_weights
         self.weights_prior = weights_prior
@@ -132,13 +138,18 @@ class RiskParityModel:
         :return:
         """
         # to calculate the optimal weights with or without considering asset correlations
-        if self.correlation_blind:
+        logging.debug("Calculating weights using %s scheme" % (self.weighting_scheme.upper()))
+        if self.weighting_scheme == "inverse_vol":
             df[self.weights_col] = 1 / df['vol']
             # normalize weights to unit sum
             df[self.weights_col] = (df[self.index_cols + [self.weights_col]]
                                     .groupby(self.date_col)[self.weights_col]
                                     .transform(lambda x: x / x.sum()))
-            logging.debug("Calculating weights assuming zero asset correlations.")
+        elif self.weighting_scheme == "equal_risk_contri":
+            weights = df.pivot_table(values=self.weights_col, index=self.date_col, columns=self.asset_id_col)
+            asset_returns = df.pivot_table(values=self.asset_ret_col, index=self.date_col, columns=self.asset_id_col)
+            assert len(weights) == len(asset_returns), "dimension mismatch between weights and return!"
+
         else:
             raise NotImplementedError
 
@@ -160,7 +171,7 @@ class RiskParityModel:
         return df
 
     @timeit
-    def calc_risk_contribution(self, df):
+    def calc_rolling_risk_contribution(self, df):
         """
         Calculates asset-wise risk contribution using a rolling window.
         risk contribution is defined as: (weights_vect * (Sigma.dot(weights_vect))) / var_p
@@ -205,7 +216,7 @@ class RiskParityModel:
         df = self.calc_return(df)
         df = self.calc_volatility(df)
         df = self.calc_weights(df)
-        df = self.calc_risk_contribution(df)
+        df = self.calc_rolling_risk_contribution(df)
         portf_return = self.calc_portf_return(df)
         self.analyze_performance(portf_return)
 
@@ -226,7 +237,7 @@ if __name__ == '__main__':
     model = RiskParityModel(
         tickers=tickers,
         sigma_lookback=60,
-        correlation_blind=True,
+        weighting_scheme="inverse_vol",
         weights_prior=weights_prior,
         shrinkage_factor=0.25,
         shrink_weights=True,
