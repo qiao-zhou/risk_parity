@@ -1,6 +1,10 @@
 # risk_parity
 risk parity strategy
 
+# How to run the model 
+Please run model/risk_parity_model.py. 
+Details to be added. 
+
 # Project Description 
 In this project, we elastrate how to build up a risk parity portfolio. 
 - We start with building a Naive risk parity portfolio where we assume zero-correlation among assets. 
