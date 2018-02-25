@@ -1,0 +1,176 @@
+DEBUG:02/24/2018 05:22:36 PM:Calculating vol using 60 day lookback
+DEBUG:02/24/2018 05:22:37 PM:Calculating weights assuming zero asset correlations.
+INFO:02/24/2018 05:22:37 PM:Mean asset weights prior to shrinkage= 
+           weights
+asset_id          
+AGG       0.677009
+GLD       0.151144
+SPY       0.171847
+DEBUG:02/24/2018 05:22:38 PM:Shrinking weights towards prior: [0.03703704]
+INFO:02/24/2018 05:22:38 PM:Mean asset weights post shrinkage = 
+           weights
+asset_id          
+AGG       0.517016
+GLD       0.122617
+SPY       0.138144
+INFO:02/24/2018 05:22:44 PM:Mean risk contribution:
+ asset_id
+AGG    0.249253
+GLD    0.438760
+SPY    0.311986
+dtype: float64
+INFO:02/24/2018 05:22:44 PM:Running CALC_RISK_CONTRIBUTION step takes 0.10 minutes
+INFO:02/24/2018 05:22:45 PM:Running ANALYZE_PERFORMANCE step takes 0.00 minutes
+INFO:02/24/2018 05:22:45 PM:run_backtest completed successfully.
+INFO:02/24/2018 05:22:45 PM:Running RUN_BACKTEST step takes 0.16 minutes
+DEBUG:02/24/2018 05:42:15 PM:Calculating vol using 60 day lookback
+DEBUG:02/24/2018 05:42:17 PM:Calculating weights assuming zero asset correlations.
+INFO:02/24/2018 05:42:17 PM:Mean asset weights prior to shrinkage= 
+          optimal_weights
+asset_id                 
+AGG              0.677009
+GLD              0.151144
+SPY              0.171847
+DEBUG:02/24/2018 05:42:19 PM:Shrinking weights towards prior: [0.03703704]
+INFO:02/24/2018 05:42:19 PM:Mean asset weights post shrinkage = 
+          optimal_weights
+asset_id                 
+AGG              0.517016
+GLD              0.122617
+SPY              0.138144
+INFO:02/24/2018 05:42:28 PM:Mean risk contribution:
+ asset_id
+AGG    0.249253
+GLD    0.438760
+SPY    0.311986
+dtype: float64
+INFO:02/24/2018 05:42:28 PM:Running CALC_RISK_CONTRIBUTION step takes 0.15 minutes
+INFO:02/24/2018 05:42:30 PM:Running ANALYZE_PERFORMANCE step takes 0.00 minutes
+INFO:02/24/2018 05:42:30 PM:run_backtest completed successfully.
+INFO:02/24/2018 05:42:30 PM:Running RUN_BACKTEST step takes 0.24 minutes
+DEBUG:02/24/2018 05:52:33 PM:Calculating vol using 60 day lookback
+DEBUG:02/24/2018 05:52:34 PM:Calculating weights assuming zero asset correlations.
+INFO:02/24/2018 05:52:34 PM:Mean asset weights prior to shrinkage= 
+          optimal_weights
+asset_id                 
+AGG              0.677009
+GLD              0.151144
+SPY              0.171847
+DEBUG:02/24/2018 05:52:37 PM:Shrinking weights towards prior: [0.33333333 0.33333333 0.33333333]
+INFO:02/24/2018 05:52:37 PM:Mean asset weights post shrinkage = 
+          optimal_weights
+asset_id                 
+AGG              0.591090
+GLD              0.196691
+SPY              0.212219
+INFO:02/24/2018 05:52:44 PM:Mean risk contribution:
+ asset_id
+AGG    0.131194
+GLD    0.501756
+SPY    0.367051
+dtype: float64
+INFO:02/24/2018 05:52:44 PM:Running CALC_RISK_CONTRIBUTION step takes 0.12 minutes
+INFO:02/24/2018 05:52:46 PM:Running ANALYZE_PERFORMANCE step takes 0.00 minutes
+INFO:02/24/2018 05:52:46 PM:run_backtest completed successfully.
+INFO:02/24/2018 05:52:46 PM:Running RUN_BACKTEST step takes 0.22 minutes
+DEBUG:02/24/2018 05:54:00 PM:Calculating vol using 60 day lookback
+DEBUG:02/24/2018 05:54:01 PM:Calculating weights assuming zero asset correlations.
+INFO:02/24/2018 05:54:01 PM:Mean asset weights prior to shrinkage= 
+          optimal_weights
+asset_id                 
+AGG              0.677009
+GLD              0.151144
+SPY              0.171847
+DEBUG:02/24/2018 05:54:04 PM:Shrinking weights towards prior: [0.33333333 0.33333333 0.33333333]
+INFO:02/24/2018 05:54:04 PM:Mean asset weights post shrinkage = 
+          optimal_weights
+asset_id                 
+AGG              0.677009
+GLD              0.151144
+SPY              0.171847
+INFO:02/24/2018 05:54:13 PM:Mean risk contribution:
+ asset_id
+AGG    0.277094
+GLD    0.423407
+SPY    0.299499
+dtype: float64
+INFO:02/24/2018 05:54:13 PM:Running CALC_RISK_CONTRIBUTION step takes 0.16 minutes
+INFO:02/24/2018 05:54:15 PM:Running ANALYZE_PERFORMANCE step takes 0.00 minutes
+INFO:02/24/2018 05:54:15 PM:run_backtest completed successfully.
+INFO:02/24/2018 05:54:15 PM:Running RUN_BACKTEST step takes 0.25 minutes
+DEBUG:02/24/2018 05:59:34 PM:Calculating vol using 60 day lookback
+DEBUG:02/24/2018 05:59:36 PM:Calculating weights assuming zero asset correlations.
+INFO:02/24/2018 05:59:36 PM:Mean asset weights prior to shrinkage= 
+          optimal_weights
+asset_id                 
+AGG              0.431494
+EEM              0.062633
+GLD              0.095134
+IWM              0.076290
+QQQ              0.090372
+SPY              0.107533
+TLT              0.136544
+DEBUG:02/24/2018 05:59:38 PM:Shrinking weights towards prior: [0.14285714 0.14285714 0.14285714 0.14285714 0.14285714 0.14285714
+ 0.14285714]
+INFO:02/24/2018 05:59:38 PM:Mean asset weights post shrinkage = 
+          optimal_weights
+asset_id                 
+AGG              0.431494
+EEM              0.062633
+GLD              0.095134
+IWM              0.076290
+QQQ              0.090372
+SPY              0.107533
+TLT              0.136544
+INFO:02/24/2018 05:59:46 PM:Mean risk contribution:
+ asset_id
+AGG    0.049162
+EEM    0.207016
+GLD    0.111771
+IWM    0.206529
+QQQ    0.203397
+SPY    0.210697
+TLT    0.011428
+dtype: float64
+INFO:02/24/2018 05:59:46 PM:Running CALC_RISK_CONTRIBUTION step takes 0.14 minutes
+INFO:02/24/2018 05:59:48 PM:Running ANALYZE_PERFORMANCE step takes 0.00 minutes
+INFO:02/24/2018 05:59:48 PM:run_backtest completed successfully.
+INFO:02/24/2018 05:59:48 PM:Running RUN_BACKTEST step takes 0.23 minutes
+DEBUG:02/24/2018 06:00:06 PM:Calculating vol using 60 day lookback
+DEBUG:02/24/2018 06:00:08 PM:Calculating weights assuming zero asset correlations.
+INFO:02/24/2018 06:00:08 PM:Mean asset weights prior to shrinkage= 
+          optimal_weights
+asset_id                 
+AGG              0.431494
+EEM              0.062633
+GLD              0.095134
+IWM              0.076290
+QQQ              0.090372
+SPY              0.107533
+TLT              0.136544
+DEBUG:02/24/2018 06:00:10 PM:Shrinking weights towards prior: [0.14285714 0.14285714 0.14285714 0.14285714 0.14285714 0.14285714
+ 0.14285714]
+INFO:02/24/2018 06:00:10 PM:Mean asset weights post shrinkage = 
+          optimal_weights
+asset_id                 
+AGG              0.359334
+EEM              0.082689
+GLD              0.107064
+IWM              0.092932
+QQQ              0.103493
+SPY              0.116364
+TLT              0.138122
+INFO:02/24/2018 06:00:20 PM:Mean risk contribution:
+ asset_id
+AGG    0.017553
+EEM    0.247502
+GLD    0.106632
+IWM    0.226221
+QQQ    0.207401
+SPY    0.205339
+TLT   -0.010646
+dtype: float64
+INFO:02/24/2018 06:00:20 PM:Running CALC_RISK_CONTRIBUTION step takes 0.17 minutes
+INFO:02/24/2018 06:00:22 PM:Running ANALYZE_PERFORMANCE step takes 0.00 minutes
+INFO:02/24/2018 06:00:22 PM:run_backtest completed successfully.
+INFO:02/24/2018 06:00:22 PM:Running RUN_BACKTEST step takes 0.26 minutes
